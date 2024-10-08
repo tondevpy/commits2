@@ -1,0 +1,27 @@
+name: Commit diário automático
+
+on:
+  schedule:
+    - cron: "0 1 * * *"  # Executa diariamente às 22h00 no horário de Brasília
+    - cron: "0 20 * * *" # Executa diariamente às 17h00 no horário de Brasília
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checar repositório
+        uses: actions/checkout@v2
+
+      - name: Atualizar arquivo
+        run: |
+          echo "Commit automático em $(date)" >> commit_log.txt
+      
+      - name: Commit e Push
+        run: |
+          git config --local user.name "Auto Commit Bot"
+          git config --local user.email "tondevpy@gmail.com"
+          git add commit_log.txt
+          git commit -m "Commit diário automático"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
