@@ -2,8 +2,13 @@ name: Commit diário automático
 
 on:
   schedule:
-    - cron: "0 1 * * *"  # Executa diariamente às 22h00 no horário de Brasília
-    - cron: "0 20 * * *" # Executa diariamente às 17h00 no horário de Brasília
+    - cron: "0 1 * * *"    # Executa diariamente às 22h00 no horário de Brasília
+    - cron: "0 20 * * *"   # Executa diariamente às 17h00 no horário de Brasília
+    - cron: "0 10 * * *"   # Executa diariamente às 07h00 no horário de Brasília
+    - cron: "0 13 * * *"   # Executa diariamente às 10h00 no horário de Brasília
+    - cron: "0 16 * * *"   # Executa diariamente às 13h00 no horário de Brasília
+    - cron: "0 22 * * *"   # Executa diariamente às 19h00 no horário de Brasília
+    - cron: "0 4 * * *"    # Executa diariamente à 01h00 no horário de Brasília
 
 jobs:
   commit:
